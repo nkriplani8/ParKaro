@@ -1,4 +1,4 @@
-package com.example.parkaro;
+package com.example.parkaro.Models;
 
 public class userData {
     private String username;

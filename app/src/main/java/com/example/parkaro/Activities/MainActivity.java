@@ -1,4 +1,4 @@
-package com.example.parkaro;
+package com.example.parkaro.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -14,6 +14,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.parkaro.Adapters.SliderAdapter;
+import com.example.parkaro.R;
 
 public class MainActivity extends AppCompatActivity {
 

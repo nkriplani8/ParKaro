@@ -1,4 +1,4 @@
-package com.example.parkaro;
+package com.example.parkaro.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.parkaro.R;
 
 public class SliderAdapter extends PagerAdapter {
 
