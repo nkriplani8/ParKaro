@@ -20,6 +20,7 @@ import com.example.parkaro.R;
 import com.example.parkaro.Models.userData;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -47,12 +48,13 @@ public class Login extends AppCompatActivity {
 
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        FirebaseApp.initializeApp(getApplicationContext());
         //defining variables...
         login_button = findViewById(R.id.login_btn);
-        email = findViewById(R.id.email);
+        email = findViewById(R.id.carstate);
         password = findViewById(R.id.password);
         password_eye = findViewById(R.id.password_eye);
+        textview_signup = findViewById(R.id.textView_signup);
 
         //password eye setup...
         password_eye.setOnClickListener(new View.OnClickListener() {
@@ -70,33 +72,39 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        //fierstore data access
+        fstore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+        userref = fstore.collection("user");
+
         //login button on click listener...
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(email.getText().toString().isEmpty()){
-                    email.setError("Please enter your phone no.");
+                    email.setError("Please enter your email");
                     email.requestFocus();
                 } else if (password.getText().toString().isEmpty()) {
                     password.setError("Please enter your password");
                     password.requestFocus();
                 }else {
                     //check for authenticated user using firestore ---------
-                    userref.whereEqualTo("userno", email.getText().toString())
+                    userref.whereEqualTo("email", email.getText().toString())
                             .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             for (QueryDocumentSnapshot documentsnapshot : queryDocumentSnapshots) {
                                 if (!(queryDocumentSnapshots.isEmpty())) {
                                     userData userdata = documentsnapshot.toObject(userData.class);
-                                    pass = userdata.getUserpassword();
-                                    if (pass.equals(password.getText().toString())) {
+                                    pass = userdata.getpassword();
+                                    //Toast.makeText(getApplicationContext(), "Invalid number or password"+password.getText().toString(), Toast.LENGTH_SHORT).show();
+                                    if (pass.toString().equals(password.getText().toString())) {
                                         SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
                                         SharedPreferences.Editor editor = preferences.edit();
                                         editor.putBoolean("isUserLogin", true);
                                         editor.commit();
                                         Intent intent = new Intent(getApplicationContext(),Dashboard.class);
-                                        intent.putExtra("userno", email.getText().toString());
+                                        intent.putExtra("email", email.getText().toString());
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Invalid number or password", Toast.LENGTH_SHORT).show();
@@ -115,6 +123,13 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
+        //call to signup activity...
+        textview_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SignUp.class);
+                startActivity(intent);
+            }
+        });
     }
 }

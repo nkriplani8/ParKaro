@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if (restorePrefData()) {
+       if (restorePrefData()) {
 
             Intent login_signup_activity = new Intent(getApplicationContext(), Login.class);
             startActivity(login_signup_activity);

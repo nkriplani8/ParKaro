@@ -28,7 +28,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
         android:accessibilityHeading="true"
-        android:text="Fast Delivery At Your Table"
+        android:text="Choose Your Parking Space"
         android:textColor="@color/colorgreen"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -36,21 +36,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slide_image2"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Fast Delivery At Your Table" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/descripation2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Place your order and get it delivered within estimated time"
+        android:text="Choose your parking area and avoid spending time on finding one"
         android:textAlignment="center"
         android:textColor="@color/colorgreen"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headiing2"
-        tools:text="Place your order and get it delivered within estimated time" />
+        app:layout_constraintTop_toBottomOf="@+id/headiing2"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.072"
-        app:srcCompat="@drawable/pic1" />
+        app:srcCompat="@drawable/pic2" />
 
     <TextView
         android:id="@+id/headiing1"
@@ -28,7 +28,6 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
         android:accessibilityHeading="true"
-        android:text="Fast Delivery At Your Table"
         android:textColor="@color/colorgreen"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -37,20 +36,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slide_image1"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Fast Delivery At Your Table" />
+        tools:text="Book Your Parking" />
 
     <TextView
         android:id="@+id/descripation1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Place your order and get it delivered within estimated time"
+        android:text="Book your parking space and avoid standing in queue"
         android:textAlignment="center"
         android:textColor="@color/colorgreen"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headiing1"
-        tools:text="Place your order and get it delivered within estimated time" />
+        app:layout_constraintTop_toBottomOf="@+id/headiing1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
