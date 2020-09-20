@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "919971603317",
+    "firebase_url": "https://parkaro-969a4.firebaseio.com",
+    "project_id": "parkaro-969a4",
+    "storage_bucket": "parkaro-969a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919971603317:android:23f4f6aae40271467de93c",
+        "android_client_info": {
+          "package_name": "com.example.parkaro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919971603317-gjvoseev9d12ov8v09nnr1avdh7comqk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parkaro",
+            "certificate_hash": "e6c62b66f5421ba5d05eb49dc3db9805592f7baa"
+          }
+        },
+        {
+          "client_id": "919971603317-tshdm3b5250k5tmshlkfffg921iqtma2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJXS3UFeMAz9XxbwoXkr-PLBEoiHlxmuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919971603317-tshdm3b5250k5tmshlkfffg921iqtma2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
