@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
     private TextView textview_signup;
     private FirebaseFirestore fstore;
     private CollectionReference userref;
-    private String num, pass, uid;
+    private String num, pass, uemail = null;
     private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,13 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         password_eye = findViewById(R.id.password_eye);
         textview_signup = findViewById(R.id.textView_signup);
+
+        //getting value from otp activity...
+        Intent intent = getIntent();
+        uemail = intent.getStringExtra("useremail");
+        if(uemail != null){
+            email.setText(uemail);
+        }
 
         //password eye setup...
         password_eye.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +96,7 @@ public class Login extends AppCompatActivity {
                     password.requestFocus();
                 }else {
                     //check for authenticated user using firestore ---------
-                    userref.whereEqualTo("email", email.getText().toString())
+                    userref.whereEqualTo("useremail", email.getText().toString())
                             .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -97,17 +104,20 @@ public class Login extends AppCompatActivity {
                                 if (!(queryDocumentSnapshots.isEmpty())) {
                                     userData userdata = documentsnapshot.toObject(userData.class);
                                     pass = userdata.getpassword();
-                                    //Toast.makeText(getApplicationContext(), "Invalid number or password"+password.getText().toString(), Toast.LENGTH_SHORT).show();
-                                    if (pass.toString().equals(password.getText().toString())) {
-                                        SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = preferences.edit();
-                                        editor.putBoolean("isUserLogin", true);
-                                        editor.commit();
-                                        Intent intent = new Intent(getApplicationContext(),Dashboard.class);
-                                        intent.putExtra("email", email.getText().toString());
-                                        startActivity(intent);
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Invalid number or password", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(getApplicationContext(), "Invalid number or password"+pass, Toast.LENGTH_SHORT).show();
+                                    if (pass != null) {
+                                        if (pass.equals(password.getText().toString())) {
+                                            SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = preferences.edit();
+                                            editor.putBoolean("isUserLogin", true);
+                                            editor.putString("email",email.getText().toString());
+                                            editor.commit();
+                                            Intent new_intent = new Intent(getApplicationContext(), Dashboard.class);
+                                            //new_intent.putExtra("email", email.getText().toString());
+                                            startActivity(new_intent);
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "Invalid number or password", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 }
                             }

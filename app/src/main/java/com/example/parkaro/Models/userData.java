@@ -5,69 +5,39 @@ public class userData {
     private String userno;
     private String useremail;
     private String password;
-    private String licence_no;
-    private String car_no;
-    private String car_city;
-    private String car_state;
-    private String car_type;
-    private String car_model;
 
-    public String getCar_type() {
-        return car_type;
+    public String getVehicle_no() {
+        return vehicle_no;
     }
 
-    public void setCar_type(String car_type) {
-        this.car_type = car_type;
+    public void setVehicle_no(String vehicle_no) {
+        this.vehicle_no = vehicle_no;
     }
 
-    public String getCar_model() {
-        return car_model;
+    public String getVehicle_type() {
+        return vehicle_type;
     }
 
-    public void setCar_model(String car_model) {
-        this.car_model = car_model;
+    public void setVehicle_type(String vehicle_type) {
+        this.vehicle_type = vehicle_type;
     }
+
+    public String getVehicle_model() {
+        return vehicle_model;
+    }
+
+    public void setVehicle_model(String vehicle_model) {
+        this.vehicle_model = vehicle_model;
+    }
+
+    private String vehicle_no;
+    private String vehicle_type;
+    private String vehicle_model;
+
+
 
     public userData() {
         //no arg constructor for firebase firestore-----
-    }
-    public String getLicence_no() {
-
-        return licence_no;
-    }
-
-    public void setLicence_no(String licence_no) {
-
-        this.licence_no = licence_no;
-    }
-
-    public String getCar_no() {
-
-        return car_no;
-    }
-
-    public void setCar_no(String car_no) {
-
-        this.car_no = car_no;
-    }
-
-    public String getCar_city() {
-        return car_city;
-    }
-
-    public void setCar_city(String car_city) {
-
-        this.car_city = car_city;
-    }
-
-    public String getCar_state() {
-
-        return car_state;
-    }
-
-    public void setCar_state(String car_state) {
-
-        this.car_state = car_state;
     }
 
     public String getUsername() {
@@ -95,7 +65,7 @@ public class userData {
         return useremail;
     }
 
-    public void setUseremail(String useruseremail) {
+    public void setUseremail(String useremail) {
 
         this.useremail = useremail;
     }

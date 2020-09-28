@@ -49,6 +49,10 @@ public class OtpVerification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_verification);
 
+        if (verificationid == null && savedInstanceState != null) {
+            onRestoreInstanceState(savedInstanceState);
+        }
+
         fstore = FirebaseFirestore.getInstance();
         userref = fstore.collection("user");
         progressBar = findViewById(R.id.progressbar);
@@ -91,9 +95,9 @@ public class OtpVerification extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
 
-                            Intent intent = new Intent(OtpVerification.this, Dashboard.class);
+                            Intent intent = new Intent(OtpVerification.this, Login.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            intent.putExtra("userno",user_no);
+                            intent.putExtra("useremail",useremail);
                             startActivity(intent);
 
                         }

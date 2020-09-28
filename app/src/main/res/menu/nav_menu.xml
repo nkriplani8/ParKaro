@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+
+        <item
+
+            android:id="@+id/home"
+            android:title="Home"/>
+    </group>
+    <group>
+        <item
+            android:id="@+id/register_vehicle"
+            android:title="Register Vehicle"/>
+
+    </group>
+    <group>
+        <item
+            android:id="@+id/get_code"
+            android:title="See QR Code"/>
+
+    </group>
+    <group>
+        <item
+            android:id="@+id/check_time"
+            android:title="Check Schedule"/>
+
+    </group>
+    <group>
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"/>
+    </group>
+</menu>
