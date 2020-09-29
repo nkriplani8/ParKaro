@@ -22,7 +22,10 @@
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <!--Toolbar is the actual app bar with text and the action items -->
 
@@ -37,18 +40,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize">
 
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="335dp"
-                            android:layout_height="62dp"
-                            android:layout_marginEnd="32dp"
-                            android:gravity="center"
-                            android:text="ParKaro"
-                            android:textColor="@color/colorgreen"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/p_logo"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.142"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>

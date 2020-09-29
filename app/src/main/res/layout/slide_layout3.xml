@@ -6,20 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:textAlignment="center">
+    android:textAlignment="center"
+    android:background="@color/colorPrimary">
 
 
     <ImageView
         android:id="@+id/slide_image3"
-        android:layout_width="329dp"
-        android:layout_height="262dp"
+        android:layout_width="310dp"
+        android:layout_height="240dp"
         android:layout_marginTop="112dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.072"
-        app:srcCompat="@drawable/pic3" />
+        app:srcCompat="@drawable/onbd_3" />
 
     <TextView
         android:id="@+id/headiing3"
@@ -29,7 +30,7 @@
         android:layout_marginBottom="50dp"
         android:accessibilityHeading="true"
         android:text="Safe Parking"
-        android:textColor="@color/colorgreen"
+        android:textColor="@color/colorDark"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,15 +41,15 @@
 
     <TextView
         android:id="@+id/descripation3"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Safe and secure parking from anywhere at any time"
         android:textAlignment="center"
-        android:textColor="@color/colorgreen"
+        android:textColor="@color/colorDark"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headiing3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

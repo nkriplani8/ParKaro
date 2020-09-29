@@ -5,27 +5,33 @@
     android:id="@+id/login2_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/login_bg"
     android:gravity="bottom"
     android:orientation="vertical">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/group_61" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/colorDark"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            />
 
         <EditText
             android:id="@+id/carstate"
@@ -87,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="@color/colorDark"
             android:text="Forgot your password?"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
@@ -100,7 +107,8 @@
             android:background="@drawable/button_style"
             android:text="Login"
             android:textSize="18sp"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -124,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
                 android:text="Or"
+                android:textColor="@color/colorDark"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -152,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="@color/colorDark"
                 android:text="Don't have an account?"
                 android:textSize="18sp" />
 
@@ -162,6 +172,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center"
+                android:textColor="@color/colorDark"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Sign Up"

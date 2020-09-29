@@ -54,7 +54,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class Dashboard extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
+public class  Dashboard extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
 
     private GoogleMap mMap;
     private Toolbar toolbar;
