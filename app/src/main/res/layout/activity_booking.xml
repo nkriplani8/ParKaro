@@ -17,6 +17,7 @@
             android:id="@+id/coordinatorLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,6 +26,7 @@
                 android:id="@+id/appBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:elevation="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -35,6 +37,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:elevation="5dp"
                     app:layout_scrollFlags="scroll|enterAlways"
                     app:titleMargin="0dp">
 
@@ -45,6 +48,7 @@
                         <ImageView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="70dp"
                             android:src="@drawable/p_logo"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -56,216 +60,384 @@
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+            app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parking Info"
+                        android:textColor="@color/colorDark"
+                        android:textSize="18dp"></TextView>
+
+
+                    <TextView
+                        android:id="@+id/todays_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorDark"
+                        android:textSize="14dp"
+                        android:textStyle="bold"></TextView>
+
+                    <!--<TextView
+                        android:layout_width="124dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/textbox_shadow1"
+                        android:text="Available..."
+                        android:textColor="@color/colorgreen"
+                        android:gravity="center"
+                        android:textSize="18dp"></TextView>-->
+
+                    <TextView
+                        android:id="@+id/show_place_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/show_place_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="12sp"></TextView>
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="2"
+                        android:background="@android:drawable/bottom_bar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Selected Slot:"
+                        android:layout_marginTop="20dp"
+                        android:textSize="14dp"></TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="10dp"
+                            app:cardCornerRadius="6dp"
+                            app:cardBackgroundColor="#fff"
+                            android:paddingHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/hrs1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Upto 1hr"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:elevation="10dp"
+                            app:cardCornerRadius="6dp"
+                            android:paddingHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/hrs2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Upto 3hrs"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="10dp"
+                            android:layout_marginLeft="20dp"
+                            app:cardCornerRadius="6dp"
+                            app:cardBackgroundColor="#fff"
+                            android:paddingHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/hrs3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Upto 5hrs"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:elevation="10dp"
+                            app:cardBackgroundColor="#fff"
+                            android:paddingHorizontal="5dp"
+                            app:cardCornerRadius="6dp">
+
+                            <TextView
+                                android:id="@+id/hrs4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Upto 7hrs"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="10dp"
+                            app:cardBackgroundColor="#fff"
+                            android:paddingHorizontal="5dp"
+                            app:cardCornerRadius="6dp">
+
+                            <TextView
+                                android:id="@+id/hrs5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="More than 7hrs"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:src="@drawable/ic_baseline_money_24"
+                            android:tint="@color/colorDark"></com.google.android.material.imageview.ShapeableImageView>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:text="Fare:"
+                            android:textSize="16dp"></TextView>
+
+                        <TextView
+                            android:id="@+id/fare"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="40$"
+                            android:textColor="@color/colorDark"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="18sp"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="20dp"
+                            android:src="@drawable/ic_baseline_today_24"
+                            android:tint="@color/colorDark"></com.google.android.material.imageview.ShapeableImageView>
+
+                        <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:text="Date From:"
+                                android:textSize="14sp"></TextView>
+                            <TextView
+                                android:id="@+id/show_sdate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorDark"></TextView>
+                            <TextView
+                                android:id="@+id/show_stime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorDark"></TextView>
+
+                        </LinearLayout>
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:src="@drawable/ic_baseline_arrow_forward_24"
+                            android:tint="@color/colorDark"></com.google.android.material.imageview.ShapeableImageView>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Date To:"
+                            android:textSize="14sp"></TextView>
+                            <TextView
+                                android:id="@+id/show_edate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorDark"></TextView>
+                            <TextView
+                                android:id="@+id/show_etime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorDark"></TextView>
+
+                        </LinearLayout>
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="10dp">
+
+                            <TextView
+                                android:id="@+id/reset_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Reset Date"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="10dp"
+                            android:layout_marginLeft="20dp">
+
+                            <TextView
+                                android:id="@+id/show_strat_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Reset In Time"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:elevation="10dp">
+
+                            <TextView
+                                android:id="@+id/show_end_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/card_view_shadow"
+                                android:paddingLeft="5dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Reset Out Time"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp"></TextView>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+            android:id="@+id/linearLayout8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
-            app:layout_constraintVertical_bias="0.059"
-            tools:layout_editor_absoluteX="0dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_place_24"
-                android:layout_marginRight="10dp"
-                android:gravity="center">
-
-            </com.google.android.material.imageview.ShapeableImageView>
-
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="Booking At:"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:id="@+id/show_place_name"
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.049"
-            tools:layout_editor_absoluteX="0dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_commute_24"
-                android:layout_marginRight="10dp"
-                android:gravity="center"></com.google.android.material.imageview.ShapeableImageView>
-
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="Distance:"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:id="@+id/show_distance"
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-            app:layout_constraintVertical_bias="0.047"
-            tools:layout_editor_absoluteX="-16dp">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_money_24"
-                android:layout_marginRight="10dp"
-                android:gravity="center"></com.google.android.material.imageview.ShapeableImageView>
-
-
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="Fare:"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:id="@+id/show_fare"
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-            app:layout_constraintVertical_bias="0.061"
-            tools:layout_editor_absoluteX="0dp">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_today_24"
-                android:layout_marginRight="10dp"
-                android:gravity="center"></com.google.android.material.imageview.ShapeableImageView>
-
-
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="Booking Date:"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:id="@+id/show_date"
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:textColor="#000"
-                android:textSize="18sp"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-            app:layout_constraintVertical_bias="0.059"
-            tools:layout_editor_absoluteX="-16dp">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_access_time_24"
-                android:layout_marginRight="10dp"
-                android:gravity="center"></com.google.android.material.imageview.ShapeableImageView>
-
-
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="Start Time:"
-                android:textColor="#000"
-                android:textSize="18sp"
-                android:gravity="center_vertical"></TextView>
-
-            <EditText
-                android:id="@+id/show_strat_time"
-                android:layout_width="152dp"
-                android:layout_height="60dp"
-                android:focusable="false"
-                android:textColor="#000"
-                android:textSize="18sp"
-                android:elevation="2dp"
-                android:gravity="center"></EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-            app:layout_constraintVertical_bias="0.076"
-            tools:layout_editor_absoluteX="0dp">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_timer_off_24"
-                android:layout_marginRight="10dp"
-                android:gravity="center"></com.google.android.material.imageview.ShapeableImageView>
-
-
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="match_parent"
-                android:text="End Time:"
-                android:textColor="#000"
-                android:textSize="18sp"
-                android:gravity="center_vertical"></TextView>
-
-            <EditText
-                android:id="@+id/show_end_time"
-                android:layout_width="152dp"
-                android:layout_height="60dp"
-                android:focusable="false"
-                android:textSize="18sp"
-                android:elevation="2dp"
-                android:gravity="center"></EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="180dp"
+            android:layout_marginBottom="64dp"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="0dp">

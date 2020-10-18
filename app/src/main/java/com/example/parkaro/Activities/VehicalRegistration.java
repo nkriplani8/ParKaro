@@ -18,14 +18,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.parkaro.Models.userData;
+import com.example.parkaro.Models.vehicleData;
 import com.example.parkaro.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class VehicalRegistration extends AppCompatActivity {
 
@@ -33,16 +39,14 @@ public class VehicalRegistration extends AppCompatActivity {
     private EditText car_model;
     private EditText car_type;
     private EditText car_no;
-    private EditText new_pass;
-    private EditText confirm_pass;
-    private String user_no, user_name, user_email, licence_no;
+    private String uemail;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     NavigationView navigationView;
     private ActionBarDrawerToggle toggle;
     private boolean flag;
     FirebaseFirestore fstore;
-    FirebaseAuth auth;
+    FirebaseUser auth;
     CollectionReference userref;
 
     @Override
@@ -55,6 +59,8 @@ public class VehicalRegistration extends AppCompatActivity {
         car_model = findViewById(R.id.car_model);
         car_type = findViewById(R.id.car_type);
         car_no = findViewById(R.id.car_no);
+        SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+        uemail = preferences.getString("email",null);
 
         //Navigation drawer --------
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -71,13 +77,15 @@ public class VehicalRegistration extends AppCompatActivity {
 
         fstore = FirebaseFirestore.getInstance();
         userref = fstore.collection("user");
-        auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance().getCurrentUser();
+        //id = auth.getUid();
 
-        Intent intent = getIntent();
-        user_no = intent.getStringExtra("userno");
-        user_name = intent.getStringExtra("uname");
-        user_email = intent.getStringExtra("uemail");
-        licence_no = intent.getStringExtra("ulicence");
+        final Intent intent = getIntent();
+        final String place_name = intent.getStringExtra("place name");
+        final String distance = intent.getStringExtra("distance");
+        final String fare = intent.getStringExtra("fare");
+        //licence_no = intent.getStringExtra("ulicence");
+        //id = intent.getStringExtra("id");
 
         //Registration process...
         register_btn.setOnClickListener(new View.OnClickListener() {
@@ -85,26 +93,34 @@ public class VehicalRegistration extends AppCompatActivity {
             public void onClick(View v) {
                 flag = validateUser();
                 if (flag) {
-                    // Toast.makeText(signup2_activity.this, "True", Toast.LENGTH_SHORT).show();
-                    userData userdata = new userData();
-                    userdata.setVehicle_no(car_no.getText().toString());
-                    userdata.setVehicle_model(car_model.getText().toString());
-                    userdata.setVehicle_type(car_type.getText().toString());
-                    userref.add(userdata).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+
+                    userData userData = new userData();
+                    String id = userData.getId();
+
+                    final vehicleData vehicledata = new vehicleData();
+                    vehicledata.setVehicle_no(car_no.getText().toString());
+                    vehicledata.setVehicle_model(car_model.getText().toString());
+                    vehicledata.setVehicle_type(car_type.getText().toString());
+
+                    userref.document(uemail.substring(0,uemail.indexOf("@"))).collection("Vehicle Registration").add(vehicledata);
+
+                    /*userref.whereEqualTo("email",uemail)
+                            .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
-                        public void onSuccess(DocumentReference documentReference) {
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            for (QueryDocumentSnapshot documentsnapshot : queryDocumentSnapshots) {
+                                Toast.makeText(getApplicationContext(),"hey",Toast.LENGTH_LONG).show();
 
-                            Intent intent = new Intent(VehicalRegistration.this, BookingActivity.class);
-                            startActivity(intent);
 
+                            }
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(VehicalRegistration.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
+                    });*/
+                    Intent intent1 = new Intent(getApplicationContext(),BookingActivity.class);
+                    intent1.putExtra("place name", place_name);
+                    intent1.putExtra("distance", distance);
+                    intent1.putExtra("fare", fare);
+                    startActivity(intent1);
+                    Toast.makeText(getApplicationContext(),"iid",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -113,7 +129,6 @@ public class VehicalRegistration extends AppCompatActivity {
     }
 
     public boolean validateUser() {
-
 
         if (TextUtils.isEmpty(car_no.getText().toString())) {
             car_no.setError("Enter your full name");
@@ -126,14 +141,6 @@ public class VehicalRegistration extends AppCompatActivity {
         } else if (TextUtils.isEmpty(car_type.getText().toString())) {
             car_type.setError("Enter your email address");
             car_type.requestFocus();
-            return false;
-        } else if (TextUtils.isEmpty(new_pass.getText().toString())) {
-            new_pass.setError("Enter your new password");
-            new_pass.requestFocus();
-            return false;
-        } else if (!new_pass.equals(confirm_pass)) {
-            confirm_pass.setError("Passwords doesn't match");
-            confirm_pass.requestFocus();
             return false;
         } else {
             return true;

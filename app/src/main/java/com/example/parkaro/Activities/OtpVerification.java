@@ -83,7 +83,9 @@ public class OtpVerification extends AppCompatActivity {
                 if(flag) {
 
                     userData userdata = new userData();
+
                     userdata.setUsername(username);
+                    userdata.setId(useremail.substring(0,useremail.indexOf("@")));
                     userdata.setUserno(user_no);
                     userdata.setUserpassword(npassword);
                     userdata.setUseremail(useremail);
@@ -91,23 +93,17 @@ public class OtpVerification extends AppCompatActivity {
                     //Creating new user on database -------
                     // String uid = mAuth.getCurrentUser().getUid();
 
-                    userref.add(userdata).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    userref.document(useremail.substring(0,useremail.indexOf("@"))).set(userdata).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
-                        public void onSuccess(DocumentReference documentReference) {
-
+                        public void onSuccess(Void aVoid) {
                             Intent intent = new Intent(OtpVerification.this, Login.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("useremail",useremail);
                             startActivity(intent);
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(OtpVerification.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
                         }
                     });
+
+
 
                 }
             }

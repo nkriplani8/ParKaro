@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QrCodeActivity"
+    tools:context=".Activities.QrCodeActivity"
     android:id="@+id/drawer_layout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,10 +54,11 @@
 
         <ImageView
             android:id="@+id/qr_code"
-            android:layout_width="244dp"
-            android:layout_height="244dp"
-            android:layout_marginTop="73dp"
+            android:layout_width="211dp"
+            android:layout_height="199dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
             app:srcCompat="@android:drawable/divider_horizontal_bright" />
@@ -66,14 +67,235 @@
             android:id="@+id/qr_code_btn"
             android:layout_width="129dp"
             android:layout_height="55dp"
-            android:text="Extend Time"
             android:background="@drawable/button_style"
-            android:textColor="@color/colorPrimary"
             android:elevation="2dp"
+            android:text="Home"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qr_code"
+            app:layout_constraintVertical_bias="0.921" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/colorDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="User Id:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.071"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qr_code" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="Vehicle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+        <TextView
+            android:id="@+id/vehicle_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/colorDark"
+            android:textSize="18sp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/user_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="@color/colorDark"
+            android:textSize="18sp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.917"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Phone"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.894"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qr_code" />
+
+        <TextView
+            android:id="@+id/parking_slot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/colorDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="Parking Slot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.922"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_no" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="Date From:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.078"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehicle_type" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="Date To:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.923"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parking_slot" />
+
+        <TextView
+            android:id="@+id/date_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/colorDark"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/date_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/colorDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.923"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="Total Fare:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.088"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_from" />
+
+        <TextView
+            android:id="@+id/park_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:text="TextView"
+            android:textColor="@color/colorDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_to" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

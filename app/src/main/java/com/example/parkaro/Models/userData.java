@@ -5,6 +5,10 @@ public class userData {
     private String userno;
     private String useremail;
     private String password;
+    private String id;
+    /*private String vehicle_no;
+    private String vehicle_type;
+    private String vehicle_model;
 
     public String getVehicle_no() {
         return vehicle_no;
@@ -28,13 +32,15 @@ public class userData {
 
     public void setVehicle_model(String vehicle_model) {
         this.vehicle_model = vehicle_model;
+    }*/
+
+    public String getId() {
+        return id;
     }
 
-    private String vehicle_no;
-    private String vehicle_type;
-    private String vehicle_model;
-
-
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public userData() {
         //no arg constructor for firebase firestore-----
